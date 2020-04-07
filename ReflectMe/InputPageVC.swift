@@ -10,11 +10,29 @@ import UIKit
 
 class InputPageVC: UIViewController {
 
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
+    func GetCurrentDate(){
+        // Gets tne current date
+        let currentDateTime = Date()
+        
+        // Initialize formatter and set style
+        let format = DateFormatter()
+        format.dateStyle = .long
+        
+        dateLabel.text = format.string(from: currentDateTime)
+    }
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        GetCurrentDate()
     }
 
 
+    
 }
 
