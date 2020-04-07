@@ -15,6 +15,21 @@ class detailpageVC: UIViewController {
     @IBOutlet weak var reflectionMonthYear: UILabel!
     @IBOutlet weak var reflectionDay: UILabel!
     
+    @IBOutlet weak var imageOTD: UIImageView!
+    
+    
+    
+//    receiving data from homepage (post Id aja)
+//    func initPost(postId: Int) {
+//
+//      self.navigationItem.title = post.postId
+//    }
+    
+    
+//    fungsi akses data di database dengan coredata, sesuai postId
+    
+//
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
