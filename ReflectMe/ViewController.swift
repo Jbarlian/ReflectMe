@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //test commit
+        // test commit
+        // test lagi kedua kalinya, push via Xcode langsung
     }
 
 
