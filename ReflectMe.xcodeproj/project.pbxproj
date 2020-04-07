@@ -16,6 +16,7 @@
 		1E3C93F3243C24B10048DBAB /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 1E3C93F2243C24B10048DBAB /* Fonts */; };
 		1E3C93F5243C30E60048DBAB /* HelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C93F4243C30E60048DBAB /* HelperExtension.swift */; };
 		1E3C93F7243C314D0048DBAB /* detailpageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3C93F6243C314D0048DBAB /* detailpageVC.swift */; };
+		1E3C93F9243C45880048DBAB /* detailPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E3C93F8243C45880048DBAB /* detailPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1E3C93F2243C24B10048DBAB /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		1E3C93F4243C30E60048DBAB /* HelperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperExtension.swift; sourceTree = "<group>"; };
 		1E3C93F6243C314D0048DBAB /* detailpageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailpageVC.swift; sourceTree = "<group>"; };
+		1E3C93F8243C45880048DBAB /* detailPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = detailPage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				1C9C5DDC2436F1270097BAE9 /* InputPageVC.swift */,
 				1E3C93F6243C314D0048DBAB /* detailpageVC.swift */,
 				1C9C5DDE2436F1270097BAE9 /* Main.storyboard */,
+				1E3C93F8243C45880048DBAB /* detailPage.storyboard */,
 				1C9C5DE12436F1290097BAE9 /* Assets.xcassets */,
 				1C9C5DE32436F1290097BAE9 /* LaunchScreen.storyboard */,
 				1C9C5DE62436F1290097BAE9 /* Info.plist */,
@@ -138,6 +141,7 @@
 				1C9C5DE52436F1290097BAE9 /* LaunchScreen.storyboard in Resources */,
 				1C9C5DE22436F1290097BAE9 /* Assets.xcassets in Resources */,
 				1C9C5DE02436F1270097BAE9 /* Main.storyboard in Resources */,
+				1E3C93F9243C45880048DBAB /* detailPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
