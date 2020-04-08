@@ -9,11 +9,26 @@
 import UIKit
 
 class ProfileVC: UIViewController {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var userNameFromOnboard = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUpUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func setUpUI() {
+        nameLabel.text = "\(userNameFromOnboard)"
     }
     
 
