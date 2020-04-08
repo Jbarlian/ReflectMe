@@ -12,9 +12,11 @@ class InputPageVC: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var doText: UITextView!
-    @IBOutlet weak var thoughtText: UITextView!
+    @IBOutlet weak var textView: UITextView!
     
-    var placeHolderLabel: UILabel!
+    var placeholderLabel : UILabel!
+    var doTextLabel : UILabel!
+
     
     func GetCurrentDate(){
         // Gets tne current date
@@ -26,39 +28,29 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         
         dateLabel.text = format.string(from: currentDateTime)
     }
-    
+
     func FeelingsPlaceHolder () {
         doText.delegate = self
-        placeHolderLabel = UILabel()
-        placeHolderLabel.text = "Tell us about your day :)"
-        placeHolderLabel.font = UIFont.italicSystemFont(ofSize: (doText.font?.pointSize)!)
-        placeHolderLabel.sizeToFit()
-        doText.addSubview(placeHolderLabel)
-        placeHolderLabel.frame.origin = CGPoint(x: 5, y: (doText.font?.pointSize)! / 2)
-        placeHolderLabel.textColor = UIColor.lightGray
-        placeHolderLabel.isHidden = !doText.text.isEmpty
+        doTextLabel = UILabel()
+        doTextLabel.text = "Tell us about your day :)"
+        doTextLabel.font = UIFont.italicSystemFont(ofSize: (doText.font?.pointSize)!)
+        doTextLabel.sizeToFit()
+        doText.addSubview(doTextLabel)
+        doTextLabel.frame.origin = CGPoint(x: 5, y: (doText.font?.pointSize)! / 2)
+        doTextLabel.textColor = UIColor.lightGray
+        doTextLabel.isHidden = !doText.text.isEmpty
     }
-   
+
     func ThoughtsPlaceHolder (){
-        thoughtText.delegate = self
-        placeHolderLabel = UILabel()
-        placeHolderLabel.text = "Tell us what's on your mind for today :)"
-        placeHolderLabel.font = UIFont.italicSystemFont(ofSize: (thoughtText.font?.pointSize)!)
-        placeHolderLabel.sizeToFit()
-        thoughtText.addSubview(placeHolderLabel)
-        placeHolderLabel.frame.origin = CGPoint(x: 5, y: (thoughtText
-            .font?.pointSize)! / 2)
-        placeHolderLabel.textColor = UIColor.lightGray
-        placeHolderLabel.isHidden = !thoughtText.text.isEmpty
-    }
-    
-    
-    func doTextDidChange(_ doText: UITextView) {
-        placeHolderLabel.isHidden = !doText.text.isEmpty
-    }
-    
-    func thoughtTextDidChange(_ thoughtText: UITextView) {
-        placeHolderLabel.isHidden = !thoughtText.text.isEmpty
+        textView.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Tell us whats on your mind :)"
+        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        textView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !textView.text.isEmpty
     }
     
     override func viewDidLoad() {
@@ -69,19 +61,23 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         // Insert placeholders
         FeelingsPlaceHolder()
         ThoughtsPlaceHolder()
+//
+//        //Get rid of placeholder
+//        doTextDidChange(doText)
+//        thoughtTextDidChange(thoughtText)
+
         
-        //Get rid of placeholder
-        doTextDidChange(doText)
-        thoughtTextDidChange(thoughtText)
-        
-        // Print Today's Date
+//        // Print Today's Date
         GetCurrentDate()
-        
-        
-        
+    
     }
 
-
+    func textViewDidChange(_ doText: UITextView) {
+        doTextLabel.isHidden = !doText.text.isEmpty
+        }
     
+//    func textViewDidChange(_ textView: UITextView) {
+//        placeholderLabel.isHidden = !textView.text.isEmpty
+//    }
 }
 
