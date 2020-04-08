@@ -24,6 +24,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         homeTableView.dataSource = self
         GetTime()
         GetCurrentDate()
+        
     }
     
     func GetTime () {
