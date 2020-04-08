@@ -14,6 +14,10 @@ class InputPageVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var doText: UITextView!
     @IBOutlet weak var textView: UITextView!
     
+    @IBAction func dismissButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     var placeholderLabel : UILabel!
     var doTextLabel : UILabel!
 

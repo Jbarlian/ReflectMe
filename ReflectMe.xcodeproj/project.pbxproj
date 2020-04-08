@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C456D91243D8BC10024548C /* HelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C456D90243D8BC10024548C /* HelperExtension.swift */; };
+		1C456D93243D8D190024548C /* InputPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C456D92243D8D190024548C /* InputPageVC.swift */; };
 		1C9C5DD92436F1270097BAE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C5DD82436F1270097BAE9 /* AppDelegate.swift */; };
 		1C9C5DDB2436F1270097BAE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C5DDA2436F1270097BAE9 /* SceneDelegate.swift */; };
 		1C9C5DDD2436F1270097BAE9 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9C5DDC2436F1270097BAE9 /* HomeController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		1C456D90243D8BC10024548C /* HelperExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperExtension.swift; path = ../../../Downloads/HelperExtension.swift; sourceTree = "<group>"; };
+		1C456D92243D8D190024548C /* InputPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputPageVC.swift; sourceTree = "<group>"; };
 		1C9C5DD52436F1270097BAE9 /* ReflectMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReflectMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9C5DD82436F1270097BAE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C9C5DDA2436F1270097BAE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,24 +80,25 @@
 		1C9C5DD72436F1270097BAE9 /* ReflectMe */ = {
 			isa = PBXGroup;
 			children = (
-				3E3E6293243D869A00CE4426 /* Home-Page.storyboard */,
+				3E728AC5243C3310006DD452 /* OnboardingVC.swift */,
 				1C9C5DDC2436F1270097BAE9 /* HomeController.swift */,
+				3E3E6291243D858300CE4426 /* HomeTableViewCell.swift */,
+				1C456D92243D8D190024548C /* InputPageVC.swift */,
 				3E3E628B243D7C1B00CE4426 /* detailpageVC.swift */,
-				3E3E628D243D7C2A00CE4426 /* detailPage.storyboard */,
+				3E728AC3243C32ED006DD452 /* ProfileVC.swift */,
 				1C456D90243D8BC10024548C /* HelperExtension.swift */,
 				3E697944243C248300167AF5 /* fonts */,
 				1C9C5DD82436F1270097BAE9 /* AppDelegate.swift */,
 				1C9C5DDA2436F1270097BAE9 /* SceneDelegate.swift */,
-				1C9C5DDE2436F1270097BAE9 /* Main.storyboard */,
-				1CE4A455243C41FC00D69FAF /* CardInput.storyboard */,
 				1C9C5DE12436F1290097BAE9 /* Assets.xcassets */,
+				1C9C5DDE2436F1270097BAE9 /* Main.storyboard */,
 				1C9C5DE32436F1290097BAE9 /* LaunchScreen.storyboard */,
-				1C9C5DE62436F1290097BAE9 /* Info.plist */,
+				3E3E6293243D869A00CE4426 /* Home-Page.storyboard */,
+				1CE4A455243C41FC00D69FAF /* CardInput.storyboard */,
+				3E3E628D243D7C2A00CE4426 /* detailPage.storyboard */,
 				3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */,
-				3E728AC3243C32ED006DD452 /* ProfileVC.swift */,
-				3E728AC5243C3310006DD452 /* OnboardingVC.swift */,
+				1C9C5DE62436F1290097BAE9 /* Info.plist */,
 				3E3E628F243D7C6700CE4426 /* ViewController.swift */,
-				3E3E6291243D858300CE4426 /* HomeTableViewCell.swift */,
 			);
 			path = ReflectMe;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				1C456D91243D8BC10024548C /* HelperExtension.swift in Sources */,
 				3E728AC6243C3310006DD452 /* OnboardingVC.swift in Sources */,
 				1C9C5DD92436F1270097BAE9 /* AppDelegate.swift in Sources */,
+				1C456D93243D8D190024548C /* InputPageVC.swift in Sources */,
 				3E3E6290243D7C6700CE4426 /* ViewController.swift in Sources */,
 				3E3E6292243D858300CE4426 /* HomeTableViewCell.swift in Sources */,
 				1C9C5DDB2436F1270097BAE9 /* SceneDelegate.swift in Sources */,
