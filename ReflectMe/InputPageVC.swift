@@ -57,7 +57,7 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+      
         // Insert placeholders
         FeelingsPlaceHolder()
         ThoughtsPlaceHolder()
@@ -65,6 +65,7 @@ class InputPageVC: UIViewController, UITextViewDelegate {
 //        //Get rid of placeholder
 //        doTextDidChange(doText)
 //        thoughtTextDidChange(thoughtText)
+
 
         
 //        // Print Today's Date
