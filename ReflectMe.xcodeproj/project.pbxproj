@@ -15,6 +15,8 @@
 		1C9C5DE52436F1290097BAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9C5DE32436F1290097BAE9 /* LaunchScreen.storyboard */; };
 		5A8E7693243C23FB0011C75C /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E7692243C23FB0011C75C /* fonts */; };
 		5A8E7696243C30B30011C75C /* HelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8E7695243C30B30011C75C /* HelperExtension.swift */; };
+		5A92357B243C47E400D5A844 /* Home-Page.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A92357A243C47E400D5A844 /* Home-Page.storyboard */; };
+		B07BD85C243D700D00876AB1 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07BD85B243D700D00876AB1 /* HomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1C9C5DE62436F1290097BAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A8E7692243C23FB0011C75C /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		5A8E7695243C30B30011C75C /* HelperExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperExtension.swift; path = ../../../Downloads/HelperExtension.swift; sourceTree = "<group>"; };
+		5A92357A243C47E400D5A844 /* Home-Page.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Home-Page.storyboard"; sourceTree = "<group>"; };
+		B07BD85B243D700D00876AB1 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +68,9 @@
 				1C9C5DD82436F1270097BAE9 /* AppDelegate.swift */,
 				1C9C5DDA2436F1270097BAE9 /* SceneDelegate.swift */,
 				1C9C5DDC2436F1270097BAE9 /* HomeController.swift */,
+				B07BD85B243D700D00876AB1 /* HomeTableViewCell.swift */,
 				1C9C5DDE2436F1270097BAE9 /* Main.storyboard */,
+				5A92357A243C47E400D5A844 /* Home-Page.storyboard */,
 				1C9C5DE12436F1290097BAE9 /* Assets.xcassets */,
 				1C9C5DE32436F1290097BAE9 /* LaunchScreen.storyboard */,
 				1C9C5DE62436F1290097BAE9 /* Info.plist */,
@@ -132,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9C5DE52436F1290097BAE9 /* LaunchScreen.storyboard in Resources */,
+				5A92357B243C47E400D5A844 /* Home-Page.storyboard in Resources */,
 				1C9C5DE22436F1290097BAE9 /* Assets.xcassets in Resources */,
 				1C9C5DE02436F1270097BAE9 /* Main.storyboard in Resources */,
 				5A8E7693243C23FB0011C75C /* fonts in Resources */,
@@ -146,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9C5DDD2436F1270097BAE9 /* HomeController.swift in Sources */,
+				B07BD85C243D700D00876AB1 /* HomeTableViewCell.swift in Sources */,
 				5A8E7696243C30B30011C75C /* HelperExtension.swift in Sources */,
 				1C9C5DD92436F1270097BAE9 /* AppDelegate.swift in Sources */,
 				1C9C5DDB2436F1270097BAE9 /* SceneDelegate.swift in Sources */,

@@ -8,16 +8,20 @@
 
 import UIKit
 
-class HomeController: UIViewController {
+class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var greetingsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var homeTableView: UITableView!
+    var currentDate = ""
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        homeTableView.delegate = self
+        homeTableView.dataSource = self
         GetTime()
         GetCurrentDate()
     }
@@ -49,6 +53,23 @@ class HomeController: UIViewController {
         format.dateStyle = .long
 
         dateLabel.text = format.string(from: currentDateTime)
+        currentDate = format.string(from: Date())
+    }
+    
+//    function Table View
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = homeTableView.dequeueReusableCell(withIdentifier: "homeCell") as! HomeTableViewCell
+        cell.labelDate.text = currentDate
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 
 }
