@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxy-Ey-g1D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxy-Ey-g1D">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -165,9 +165,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageMood" destination="bMc-i9-BRO" id="spg-tm-rln"/>
-                                            <outlet property="labelDate" destination="3un-C3-teS" id="A8L-XO-lEc"/>
-                                            <outlet property="labelStory" destination="9P2-W7-ElR" id="Jbp-Jf-8cQ"/>
+                                            <outlet property="labelDate" destination="3un-C3-teS" id="ze9-3I-E1U"/>
+                                            <outlet property="labelStory" destination="9P2-W7-ElR" id="nAU-gj-V7d"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -210,7 +209,7 @@
     <resources>
         <image name="Rectangle" width="275" height="42"/>
         <image name="floral" width="188" height="286"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="slider" width="30" height="22"/>
     </resources>
 </document>
