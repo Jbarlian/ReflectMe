@@ -18,9 +18,67 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    // Label for placeholders
     var placeholderLabel : UILabel!
     var doTextLabel : UILabel!
 
+    // Data for Inputs
+    var aPost : Post?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        aPost?.postId = 1
+        aPost?.postEmotion = "happy"
+        aPost?.postDo = doText.text
+        aPost?.postThought = textView.text
+
+        
+        // Insert placeholders
+        FeelingsPlaceHolder()
+        ThoughtsPlaceHolder()
+//
+//        //Get rid of placeholder
+//        doTextDidChange(doText)
+//        thoughtTextDidChange(thoughtText)
+
+//        // Print Today's Date
+        GetCurrentDate()
+    
+    }
+
+    func textViewDidChange(_ doText: UITextView) {
+        doTextLabel.isHidden = !doText.text.isEmpty
+        }
+    
+//    func textViewDidChange(_ textView: UITextView) {
+//        placeholderLabel.isHidden = !textView.text.isEmpty
+//    }
+    
+    @IBAction func submitButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func superSadButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func sadButton(_ sender: UIButton) {
+        
+    }
+  
+    @IBAction func neutralButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func happyButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func superHappy(_ sender: UIButton) {
+        
+    }
     
     func GetCurrentDate(){
         // Gets tne current date
@@ -56,33 +114,5 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-      
-        // Insert placeholders
-        FeelingsPlaceHolder()
-        ThoughtsPlaceHolder()
-//
-//        //Get rid of placeholder
-//        doTextDidChange(doText)
-//        thoughtTextDidChange(thoughtText)
-
-
-        
-//        // Print Today's Date
-        GetCurrentDate()
-    
-    }
-
-    func textViewDidChange(_ doText: UITextView) {
-        doTextLabel.isHidden = !doText.text.isEmpty
-        }
-    
-//    func textViewDidChange(_ textView: UITextView) {
-//        placeholderLabel.isHidden = !textView.text.isEmpty
-//    }
 }
 

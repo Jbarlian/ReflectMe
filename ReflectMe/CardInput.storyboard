@@ -60,31 +60,49 @@
                                 <rect key="frame" x="185" y="225" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="meh"/>
+                                <connections>
+                                    <action selector="neutralButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="Y6U-Z1-3Gh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23X-Bj-aa0">
                                 <rect key="frame" x="110" y="225" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="sad"/>
+                                <connections>
+                                    <action selector="sadButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="1Pw-iw-Yhe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8r-as-0kP">
                                 <rect key="frame" x="35" y="225" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="sad-2"/>
+                                <connections>
+                                    <action selector="superSadButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="V47-nT-6R5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw6-2x-Baw">
                                 <rect key="frame" x="260" y="225" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="smile-2"/>
+                                <connections>
+                                    <action selector="happyButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="HoM-tZ-Wza"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGJ-wH-eJ5">
                                 <rect key="frame" x="335" y="225" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="happy"/>
+                                <connections>
+                                    <action selector="superHappy:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="vHy-Im-Zcd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Ch-Vnc">
                                 <rect key="frame" x="70" y="730" width="275" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Submit Button"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="AbF-jp-DjU"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T1u-h1-sd7">
                                 <rect key="frame" x="43" y="551" width="329" height="134"/>
