@@ -26,21 +26,28 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func buttonTest(_ sender: Any) {
+        aPost?.postDo = doText.text
+        
+    }
+    
+    var tesdah = "Apapun"
+    
     // Label for placeholders
     var placeholderLabel : UILabel!
     var doTextLabel : UILabel!
 
     // Data for Inputs
-    var aPost : Post?
+    var aPost: Post? = Post(postId: 1, postDate: Date(), postEmotion: "Happy", postDo: "Aku senang", postThought: "Aku belajar")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        aPost?.postId = 1
-        aPost?.postEmotion = "happy"
-        aPost?.postDo = doText.text
-        aPost?.postThought = textView.text
+//        aPost?.postId = 1
+//        aPost?.postEmotion = "happy"
+//        aPost?.postDo = doText.text
+//        aPost?.postThought = textView.text
 
         
         // Insert placeholders

@@ -14,10 +14,20 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var homeTableView: UITableView!
+
     var currentDate = ""
+    var posts = [Post]()
+    var defaultPosts = Post(postId: 1, postDate: Date(), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
     
+    @IBAction func segueFromInput (_ sender: UIStoryboardSegue) {
+        
+        guard let postFromInput = sender.source as? InputPageVC else { return }
+        posts.append(postFromInput.aPost ?? defaultPosts)
+        print(posts)
+    }
+
     let defaults = UserDefaults.standard
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         homeTableView.delegate = self
