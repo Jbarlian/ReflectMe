@@ -15,9 +15,9 @@ class detailpageVC: UIViewController {
     @IBOutlet weak var reflectionMonthYear: UILabel!
     @IBOutlet weak var reflectionDay: UILabel!
     
-    @IBOutlet weak var imageOTD: UIImageView!
-    
-    
+   
+    var aPost = Post (postId: 1, postDate: Date(), postEmotion: "happy", postDo: "blabla", postThought: "blulb")
+    let posts = [Post (postId: 1, postDate: Date(), postEmotion: "sad", postDo: "blabla", postThought: "blulb")]
     
 //    receiving data from homepage (post Id aja)
 //    func initPost(postId: Int) {
@@ -33,7 +33,7 @@ class detailpageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        reflectionDay.text = posts[0].postEmotion
         
         
         // Do any additional setup after loading the view.
