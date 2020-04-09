@@ -85,15 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="smile-2"/>
                                 <connections>
-                                    <action selector="happyButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="HoM-tZ-Wza"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGJ-wH-eJ5">
-                                <rect key="frame" x="335" y="225" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="happy"/>
-                                <connections>
-                                    <action selector="superHappy:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="vHy-Im-Zcd"/>
+                                    <action selector="happyButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="7i1-6f-U2g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Ch-Vnc">
@@ -120,13 +112,20 @@
                                     <action selector="dismissButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="BpE-sV-5oW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBq-43-tuS">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGJ-wH-eJ5">
+                                <rect key="frame" x="335" y="225" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="happy"/>
+                                <connections>
+                                    <action selector="superHappyButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="5Hd-Ir-tAz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mG1-cy-ZT2">
                                 <rect key="frame" x="184" y="692" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="buttonTest:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="nVA-pE-Gzq"/>
-                                    <segue destination="sEV-oq-jQg" kind="unwind" unwindAction="segueFromInput:" id="3WZ-Pe-dS6"/>
+                                    <segue destination="sEV-oq-jQg" kind="unwind" unwindAction="segueFromInput:" id="zxb-iA-9rJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -136,6 +135,11 @@
                     <connections>
                         <outlet property="dateLabel" destination="IhA-YO-wFz" id="EYU-sE-nly"/>
                         <outlet property="doText" destination="8Yo-gf-D8D" id="oRE-hy-hzv"/>
+                        <outlet property="happyImage" destination="Jw6-2x-Baw" id="dVj-S2-tE2"/>
+                        <outlet property="neutralImage" destination="pAg-rb-aFm" id="eXF-PA-Atd"/>
+                        <outlet property="sadImage" destination="23X-Bj-aa0" id="GK1-oD-tFx"/>
+                        <outlet property="superHappyImage" destination="gGJ-wH-eJ5" id="FI4-nI-RuE"/>
+                        <outlet property="superSadImage" destination="S8r-as-0kP" id="tdD-oY-q5B"/>
                         <outlet property="textView" destination="T1u-h1-sd7" id="T4k-sr-vVb"/>
                     </connections>
                 </viewController>
