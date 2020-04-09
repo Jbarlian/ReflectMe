@@ -27,6 +27,7 @@
 		3E697947243C269F00167AF5 /* StoryboardProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */; };
 		3E728AC4243C32ED006DD452 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728AC3243C32ED006DD452 /* ProfileVC.swift */; };
 		3E728AC6243C3310006DD452 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728AC5243C3310006DD452 /* OnboardingVC.swift */; };
+		3EF6E03C243EC74E00EDD279 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E03B243EC74E00EDD279 /* Onboarding.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardProfile.storyboard; sourceTree = "<group>"; };
 		3E728AC3243C32ED006DD452 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		3E728AC5243C3310006DD452 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		3EF6E03B243EC74E00EDD279 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,13 +100,16 @@
 				1C9C5DE32436F1290097BAE9 /* LaunchScreen.storyboard */,
 				3E3E6293243D869A00CE4426 /* Home-Page.storyboard */,
 				1CE4A455243C41FC00D69FAF /* CardInput.storyboard */,
+				3E3E628D243D7C2A00CE4426 /* detailPage.storyboard */,
+				3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */,
 				1E2C4F4C243DD12E005D564D /* HelperExtension.swift */,
 				3E3E628D243D7C2A00CE4426 /* detailPage.storyboard */,
 				3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */,
-				1C9C5DE62436F1290097BAE9 /* Info.plist */,
-				3E3E628F243D7C6700CE4426 /* ViewController.swift */,
 				1ECFA8C7243EC14F009E9F54 /* Post.swift */,
 				1ECFA8C9243EC516009E9F54 /* User.swift */,
+				1C9C5DE62436F1290097BAE9 /* Info.plist */,
+				3E3E628F243D7C6700CE4426 /* ViewController.swift */,
+				3EF6E03B243EC74E00EDD279 /* Onboarding.storyboard */,
 			);
 			path = ReflectMe;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				1C9C5DE02436F1270097BAE9 /* Main.storyboard in Resources */,
 				1CE4A456243C41FC00D69FAF /* CardInput.storyboard in Resources */,
 				3E3E6294243D869B00CE4426 /* Home-Page.storyboard in Resources */,
+				3EF6E03C243EC74E00EDD279 /* Onboarding.storyboard in Resources */,
 				3E3E628E243D7C2A00CE4426 /* detailPage.storyboard in Resources */,
 				3E697945243C248300167AF5 /* fonts in Resources */,
 			);
