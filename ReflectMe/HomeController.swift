@@ -16,7 +16,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var homeTableView: UITableView!
     var currentDate = ""
     
-    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         GetTime()
         GetCurrentDate()
         
+        // Set Name with User Default
+        let userDictionary = defaults.dictionary(forKey: "user")
+        usernameLabel.text = userDictionary?["name"] as? String
     }
     
     func GetTime () {
@@ -72,6 +75,5 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-
 }
 
