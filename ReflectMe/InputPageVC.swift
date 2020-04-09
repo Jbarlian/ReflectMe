@@ -10,7 +10,15 @@ import UIKit
 
 class InputPageVC: UIViewController, UITextViewDelegate {
 
+    // Text Views
     @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var superHappyImage: UIButton!
+    @IBOutlet weak var happyImage: UIButton!
+    @IBOutlet weak var neutralImage: UIButton!
+    @IBOutlet weak var sadImage: UIButton!
+    @IBOutlet weak var superSadImage: UIButton!
+    
     @IBOutlet weak var doText: UITextView!
     @IBOutlet weak var textView: UITextView!
     
@@ -61,24 +69,58 @@ class InputPageVC: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func superSadButton(_ sender: UIButton) {
-        
+        if superSadImage.currentBackgroundImage == #imageLiteral(resourceName: "sad-2"){
+                superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-3"), for: .normal)
+                aPost?.postEmotion = "super-sad"
+            }
+            else{
+                superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-2"), for: .normal)
+            }
     }
     
     @IBAction func sadButton(_ sender: UIButton) {
-        
+        if sadImage.currentBackgroundImage == #imageLiteral(resourceName: "sad"){
+            sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-1"), for: .normal)
+            aPost?.postEmotion = "sad"
+        }
+        else{
+            sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad"), for: .normal)
+        }
     }
   
     @IBAction func neutralButton(_ sender: UIButton) {
-        
+        if neutralImage.currentBackgroundImage == #imageLiteral(resourceName: "meh"){
+            neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh-1"), for: .normal)
+            aPost?.postEmotion = "neutral"
+        }
+        else{
+            neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh"), for: .normal)
+        }
     }
     
     @IBAction func happyButton(_ sender: UIButton) {
         
+        if happyImage.currentBackgroundImage == #imageLiteral(resourceName: "smile-2"){
+            happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-3"), for: .normal)
+            aPost?.postEmotion = "happy"
+        }
+        else{
+            happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-2"), for: .normal)
+        }
     }
     
-    @IBAction func superHappy(_ sender: UIButton) {
+    @IBAction func superHappyButton(_ sender: Any) {
         
+        if superHappyImage.currentBackgroundImage == #imageLiteral(resourceName: "happy"){
+            superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy-1"), for: .normal)
+            aPost?.postEmotion = "super-happy"
+        }
+        else{
+            superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy"), for: .normal)
+        }
     }
+    
+    
     
     func GetCurrentDate(){
         // Gets tne current date
