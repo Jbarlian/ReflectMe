@@ -84,6 +84,7 @@
                         <outlet property="reflectionDay" destination="tCk-7O-MQA" id="uSX-t8-3Ef"/>
                         <outlet property="reflectionEmotionBg" destination="HkC-eH-UEw" id="fH1-F8-ktz"/>
                         <outlet property="reflectionMonthYear" destination="vce-Is-Av2" id="YMg-pQ-0tK"/>
+                        <outlet property="reflectionStory" destination="F9t-BK-Ehu" id="2PT-6N-GJ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOp-WS-D9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
