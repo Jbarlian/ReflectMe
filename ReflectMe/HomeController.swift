@@ -20,6 +20,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var currentDate = ""
     var posts:[Post] = []
+    var user:User?
     var defaultPost = Post(postId: 1, postDate: Date(), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
     
     private let reuseIdentifier = "productCell"
@@ -42,6 +43,8 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(posts.count)
         print(posts)
         homeTableView.reloadData()
+        
+        checkForBadges()
         
     }
 
@@ -70,6 +73,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
             let decoder = JSONDecoder()
             if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
                 usernameLabel.text = loadedUser.username
+                user = loadedUser
             }
         }
     }
@@ -140,6 +144,29 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
                 detailPageControl.aPost = sender as! Post
             }
         }
+    
+    func checkForBadges() {
+        if posts.count == 5 {
+            print("You earned a badge for having 5 entries!")
+            user?.badges.append("profile-badge")
+        }
+        
+        if posts.count == 10 {
+            print("You earned a badge for having 10 entries!")
+            user?.badges.append("profile-badge-2")
+        }
+        
+        if posts.count == 15 {
+            print("You earned a badge for having 15 entries!")
+            user?.badges.append("profile-badge-3")
+        }
+        
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(user) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "savedUser")
+        }
+    }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 150
