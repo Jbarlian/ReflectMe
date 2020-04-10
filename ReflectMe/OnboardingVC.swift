@@ -14,11 +14,22 @@ class OnboardingVC: UIViewController {
     
     var userName: String = ""
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        // Do any additional setup after loading the view.
+//        if defaults.bool(forKey: "First Launch") == true {
+//            print("Second+")
+//
+//            // Run code after first launch
+//
+//            defaults.set(true, forKey: "First Launch")
+//        } else {
+//            print("First")
+//            // Run code after first launch
+//            defaults.set(true, forKey: "First Launch")
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

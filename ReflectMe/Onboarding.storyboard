@@ -15,7 +15,7 @@
         <!--OnboardingVC-->
         <scene sceneID="Sys-rE-xNq">
             <objects>
-                <viewController id="6pf-bH-Xe0" customClass="OnboardingVC" customModule="ReflectMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboardingVC" id="6pf-bH-Xe0" customClass="OnboardingVC" customModule="ReflectMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sB1-gB-5ho">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +150,7 @@
         <!--Navigation Controller-->
         <scene sceneID="NSk-gc-3ul">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hk1-TX-SN7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navVC" automaticallyAdjustsScrollViewInsets="NO" id="Hk1-TX-SN7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hxB-VC-jRx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
