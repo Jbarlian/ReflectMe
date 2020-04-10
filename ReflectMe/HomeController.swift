@@ -8,35 +8,51 @@
 
 import UIKit
 
-class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var greetingsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var homeTableView: UITableView!
-
-    var currentDate = ""
-    var posts = [Post]()
-    var defaultPosts = Post(postId: 1, postDate: Date(), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
-    
-    @IBAction func segueFromInput (_ sender: UIStoryboardSegue) {
+   
         
+    
+    @IBOutlet weak var homeTableView: UITableView!
+    
+    var currentDate = ""
+    var posts:[Post] = []
+    var defaultPost = Post(postId: 1, postDate: Date(), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
+    
+    private let reuseIdentifier = "productCell"
+    
+    
+    
+    //unwind segue
+    @IBAction func segueFromInput (_ sender: UIStoryboardSegue) {
         guard let postFromInput = sender.source as? InputPageVC else { return }
-        posts.append(postFromInput.aPost ?? defaultPosts)
-        // print(posts)
+        postFromInput.aPost?.postDo = postFromInput.doText.text
+        postFromInput.aPost?.postThought = postFromInput.textView.text
+        posts.append(postFromInput.aPost ?? defaultPost)
+        print(posts.count)
+        print(posts)
+        homeTableView.reloadData()
     }
 
+    
     let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeTableView.delegate = self
+        //homeTableView.delegate = self
         homeTableView.dataSource = self
+        
         GetTime()
         GetCurrentDate()
         
-        // Set Name with User Default
+        posts.append(defaultPost)
+        posts.append(Post(postId: 2, postDate: Date(), postEmotion: "sad", postDo: "TWO", postThought: "Dua"))
         
+        
+        // Set Name with User Default
         if let savedUser = defaults.object(forKey: "savedUser") as? Data {
             let decoder = JSONDecoder()
             if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
@@ -45,10 +61,9 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    
     func GetTime () {
-       
         let hour = Calendar.current.component(.hour, from: Date())
-        
         switch hour {
         case 6..<12:
             greetingsLabel.text = "Good Morning,"
@@ -59,9 +74,8 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         default:
             greetingsLabel.text = "Good Night,"
         }
-        
-        
     }
+    
     
     func GetCurrentDate() {
         // Gets tne current date
@@ -77,18 +91,35 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 //    function Table View
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = homeTableView.dequeueReusableCell(withIdentifier: "homeCell") as! HomeTableViewCell
-        cell.labelDate.text = currentDate
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aHomeCell", for: indexPath)
+       
+        /***** DateFormatter Part *****/
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+         
+        let dateString = formatter.string(from: posts[indexPath.row].postDate)
+        //dateString now contains the string:
+        //"December 25, 2019 at 7:00:00 AM"
+        
+        cell.textLabel?.text = dateString
+        cell.detailTextLabel?.text = posts[indexPath.row].postDo
+//        cell.imageView?.image = UIImage(named: categories[indexPath.row].categoryImage)
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 150
+//    }
 }
+
 
