@@ -82,8 +82,7 @@ class detailpageVC: UIViewController {
     }
     
 }
-    
-
+  
 //    //ga kepake sih, ikr...
 //    receiving data from homepage (post Id aja)
 //    func initPost(postId: Int) {
