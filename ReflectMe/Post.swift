@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Post {
+struct Post:Codable {
     var postId: Int
     var postDate: Date
     var postEmotion:String

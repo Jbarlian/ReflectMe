@@ -20,11 +20,12 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var currentDate = ""
     var posts:[Post] = []
+    var user:User?
     var defaultPost = Post(postId: 1, postDate: Date(), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
     
     private let reuseIdentifier = "productCell"
     
-    
+    let defaults = UserDefaults.standard
     
     //unwind segue
     @IBAction func segueFromInput (_ sender: UIStoryboardSegue) {
@@ -32,13 +33,20 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         postFromInput.aPost?.postDo = postFromInput.doText.text
         postFromInput.aPost?.postThought = postFromInput.textView.text
         posts.append(postFromInput.aPost ?? defaultPost)
+        
+        // Save posts to UserDefault
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(posts) {
+            defaults.set(encoded, forKey: "savedPosts")
+        }
+        
         print(posts.count)
         print(posts)
         homeTableView.reloadData()
+        
+        checkForBadges()
+        
     }
-
-    
-    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +56,16 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         GetTime()
         GetCurrentDate()
         
-        posts.append(defaultPost)
-        posts.append(Post(postId: 2, postDate: Date(), postEmotion: "sad", postDo: "TWO", postThought: "Dua"))
+        // Get Posts from User Defaults
+        if let savedPosts = defaults.object(forKey: "savedPosts") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPosts = try? decoder.decode([Post].self, from: savedPosts) {
+                posts = loadedPosts
+            }
+        }
+        
+//        posts.append(defaultPost)
+//        posts.append(Post(postId: 2, postDate: Date(), postEmotion: "sad", postDo: "TWO", postThought: "Dua"))
         
         
         // Set Name with User Default
@@ -57,6 +73,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
             let decoder = JSONDecoder()
             if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
                 usernameLabel.text = loadedUser.username
+                user = loadedUser
             }
         }
     }
@@ -127,6 +144,29 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
                 detailPageControl.aPost = sender as! Post
             }
         }
+    
+    func checkForBadges() {
+        if posts.count == 5 {
+            print("You earned a badge for having 5 entries!")
+            user?.badges.append("profile-badge")
+        }
+        
+        if posts.count == 10 {
+            print("You earned a badge for having 10 entries!")
+            user?.badges.append("profile-badge-2")
+        }
+        
+        if posts.count == 15 {
+            print("You earned a badge for having 15 entries!")
+            user?.badges.append("profile-badge-3")
+        }
+        
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(user) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "savedUser")
+        }
+    }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 150

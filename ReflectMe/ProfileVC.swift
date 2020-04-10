@@ -21,6 +21,8 @@ class ProfileVC: UIViewController {
     let defaults = UserDefaults.standard
     
     var arrayOfBadges: [String] = []
+    var posts:[Post] = []
+    var totalWords = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +37,23 @@ class ProfileVC: UIViewController {
             }
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Get Posts from User Defaults
+        if let savedPosts = defaults.object(forKey: "savedPosts") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPosts = try? decoder.decode([Post].self, from: savedPosts) {
+                posts = loadedPosts
+            }
+        }
+        
         // Set statistics
         setStatistics()
         
         setCurrentBadge()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,10 +69,30 @@ class ProfileVC: UIViewController {
             if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
                 
                 // Set words written
+                if(!posts.isEmpty) {
+                    totalWords = 0
+                    for n in 0...posts.count-1 {
+                        totalWords += SpecificWordCount(post: posts[n])
+                    }
+                }
+                labelWordsWritten.text = "\(totalWords)"
+                
+                // Set average emotion
+                var emotionScore: Float = 0
+                if(!posts.isEmpty) {
+                    totalWords = 0
+                    for n in 0...posts.count-1 {
+                        emotionScore += score(posts[n].postEmotion)
+                    }
+                }
+                emotionScore = emotionScore / Float((posts.count))
+                
+                print(emotionScore)
+                //labelCurrentStreak.text = "\(emotionScore)"
+                labelCurrentStreak.text = String.localizedStringWithFormat("%.1f / 5", emotionScore)
                 
                 // Set total entries
-                
-                // Set current streak
+                labelTotalEntries.text = "\(posts.count)"
                 
                 // Set total badges count
                 print("Total badgges: \(loadedUser.badges.count)")
@@ -83,7 +117,7 @@ class ProfileVC: UIViewController {
             case "profile-badge-3":
                 imageBadge.image = UIImage(named: "profile-badge-3")
             default:
-                print("badge lain")
+                imageBadge.image = UIImage(named: "")
             }
             
         } else {
@@ -91,6 +125,44 @@ class ProfileVC: UIViewController {
         }
     }
     
+    // counts a specific word in a string
+    func SpecificWordCount(post: Post) ->Int {
+        
+        // Count words in Post Do
+        var str = post.postDo
+        var words = str.components(separatedBy: " ")
+        var count = 0
+        for _ in words {
+            count += 1
+        }
+        
+        // Count words in Post Thought
+        str = post.postThought
+        words = str.components(separatedBy: " ")
+        for _ in words {
+            count += 1
+        }
+        
+        return count
+    }
+    
+    //
+    func score(_ emotion:String) -> Float {
+        switch emotion {
+        case "super-sad":
+            return 1
+        case "sad":
+            return 2
+        case "neutral":
+            return 3
+        case "happy":
+            return 4
+        case "super-happy":
+            return 5
+        default:
+            return 0
+        }
+    }
 
     /*
     // MARK: - Navigation
