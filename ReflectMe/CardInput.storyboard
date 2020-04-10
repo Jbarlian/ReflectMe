@@ -88,14 +88,6 @@
                                     <action selector="happyButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="7i1-6f-U2g"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Ch-Vnc">
-                                <rect key="frame" x="70" y="730" width="275" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Submit Button"/>
-                                <connections>
-                                    <action selector="submitButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="AbF-jp-DjU"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T1u-h1-sd7">
                                 <rect key="frame" x="43" y="551" width="329" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -120,11 +112,12 @@
                                     <action selector="superHappyButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="5Hd-Ir-tAz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mG1-cy-ZT2">
-                                <rect key="frame" x="184" y="692" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mG1-cy-ZT2">
+                                <rect key="frame" x="52" y="740" width="310" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button" image="Submit Button"/>
                                 <connections>
+                                    <action selector="submitButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="HyA-2p-3XS"/>
                                     <segue destination="sEV-oq-jQg" kind="unwind" unwindAction="segueFromInput:" id="zxb-iA-9rJ"/>
                                 </connections>
                             </button>
