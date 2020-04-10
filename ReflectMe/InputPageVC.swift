@@ -19,19 +19,14 @@ class InputPageVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var sadImage: UIButton!
     @IBOutlet weak var superSadImage: UIButton!
     
+    @IBOutlet var emotionButton: [UIButton]!
+    
     @IBOutlet weak var doText: UITextView!
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func dismissButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func buttonTest(_ sender: Any) {
-        aPost?.postDo = doText.text
-        
-    }
-    
-    var tesdah = "Apapun"
     
     // Label for placeholders
     var placeholderLabel : UILabel!
@@ -54,16 +49,12 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         // Insert placeholders
         FeelingsPlaceHolder()
         ThoughtsPlaceHolder()
-
-//        // Print Today's Date
+  
+        // Print Today's Date
         GetCurrentDate()
     
     }
 
-    func textViewDidChange(_ doText: UITextView) {
-        doTextLabel.isHidden = !doText.text.isEmpty
-        }
-    
 //    func textViewDidChange(_ textView: UITextView) {
 //        placeholderLabel.isHidden = !textView.text.isEmpty
 //    }
@@ -76,30 +67,84 @@ class InputPageVC: UIViewController, UITextViewDelegate {
     @IBAction func superSadButton(_ sender: UIButton) {
         if superSadImage.currentBackgroundImage == #imageLiteral(resourceName: "sad-2"){
                 superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-3"), for: .normal)
+                sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad"), for: .normal)
+                neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh"), for: .normal)
+                superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy"), for: .normal)
+                happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-2"), for: .normal)
+            
                 aPost?.postEmotion = "super-sad"
+            
+            // Prevent other buttons to be pressed
+//            sadImage.isUserInteractionEnabled = false
+//            neutralImage.isUserInteractionEnabled = false
+//            happyImage.isUserInteractionEnabled = false
+//            superHappyImage.isUserInteractionEnabled = false
+            
             }
             else{
-                superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-2"), for: .normal)
+            superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-2"), for: .normal)
+            
+            // Allows buttons to be pressed again
+//            sadImage.isUserInteractionEnabled = true
+//            neutralImage.isUserInteractionEnabled = true
+//            happyImage.isUserInteractionEnabled = true
+//            superHappyImage.isUserInteractionEnabled = true
+            
             }
     }
     
     @IBAction func sadButton(_ sender: UIButton) {
         if sadImage.currentBackgroundImage == #imageLiteral(resourceName: "sad"){
             sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-1"), for: .normal)
+            superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-2"), for: .normal)
+            neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh"), for: .normal)
+            superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy"), for: .normal)
+            happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-2"), for: .normal)
+            
             aPost?.postEmotion = "sad"
+            
+            // Prevent other buttons to be pressed
+//            superSadImage.isUserInteractionEnabled = false
+//            neutralImage.isUserInteractionEnabled = false
+//            happyImage.isUserInteractionEnabled = false
+//            superHappyImage.isUserInteractionEnabled = false
         }
         else{
-            sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad"), for: .normal)
+            
+        sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad"), for: .normal)
+            
+        // Allows buttons to be pressed again
+//        superSadImage.isUserInteractionEnabled = true
+//        neutralImage.isUserInteractionEnabled = true
+//        happyImage.isUserInteractionEnabled = true
+//        superHappyImage.isUserInteractionEnabled = true
         }
     }
   
     @IBAction func neutralButton(_ sender: UIButton) {
         if neutralImage.currentBackgroundImage == #imageLiteral(resourceName: "meh"){
             neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh-1"), for: .normal)
+            sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad"), for: .normal)
+            superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-2"), for: .normal)
+            superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy"), for: .normal)
+            happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-2"), for: .normal)
+            
             aPost?.postEmotion = "neutral"
+            
+            // Prevent other buttons to be pressed
+//            superSadImage.isUserInteractionEnabled = false
+//            sadImage.isUserInteractionEnabled = false
+//            happyImage.isUserInteractionEnabled = false
+//            superHappyImage.isUserInteractionEnabled = false
         }
         else{
-            neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh"), for: .normal)
+        neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh"), for: .normal)
+            
+        // Allows buttons to be pressed again
+//        superSadImage.isUserInteractionEnabled = true
+//        sadImage.isUserInteractionEnabled = true
+//        happyImage.isUserInteractionEnabled = true
+//        superHappyImage.isUserInteractionEnabled = true
         }
     }
     
@@ -107,10 +152,27 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         
         if happyImage.currentBackgroundImage == #imageLiteral(resourceName: "smile-2"){
             happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-3"), for: .normal)
+            sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad"), for: .normal)
+            superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-2"), for: .normal)
+            neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh"), for: .normal)
+            superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy"), for: .normal)
+            
             aPost?.postEmotion = "happy"
+            
+            // Prevent other buttons to be pressed
+//            superSadImage.isUserInteractionEnabled = false
+//            sadImage.isUserInteractionEnabled = false
+//            neutralImage.isUserInteractionEnabled = false
+//            superHappyImage.isUserInteractionEnabled = false
         }
         else{
-            happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-2"), for: .normal)
+        happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-2"), for: .normal)
+            
+        // Allows buttons to be pressed again
+//        superSadImage.isUserInteractionEnabled = true
+//        sadImage.isUserInteractionEnabled = true
+//        neutralImage.isUserInteractionEnabled = true
+//        superHappyImage.isUserInteractionEnabled = true
         }
     }
     
@@ -118,10 +180,27 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         
         if superHappyImage.currentBackgroundImage == #imageLiteral(resourceName: "happy"){
             superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy-1"), for: .normal)
+            sadImage.setBackgroundImage(#imageLiteral(resourceName: "sad"), for: .normal)
+            superSadImage.setBackgroundImage(#imageLiteral(resourceName: "sad-2"), for: .normal)
+            neutralImage.setBackgroundImage(#imageLiteral(resourceName: "meh"), for: .normal)
+            happyImage.setBackgroundImage(#imageLiteral(resourceName: "smile-2"), for: .normal)
+            
             aPost?.postEmotion = "super-happy"
+            
+            // Prevent other buttons to be pressed
+//            superSadImage.isUserInteractionEnabled = false
+//            sadImage.isUserInteractionEnabled = false
+//            neutralImage.isUserInteractionEnabled = false
+//            happyImage.isUserInteractionEnabled = false
         }
         else{
-            superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy"), for: .normal)
+        superHappyImage.setBackgroundImage(#imageLiteral(resourceName: "happy"), for: .normal)
+            
+        // Allows buttons to be pressed again
+//        superSadImage.isUserInteractionEnabled = true
+//        sadImage.isUserInteractionEnabled = true
+//        neutralImage.isUserInteractionEnabled = true
+//        happyImage.isUserInteractionEnabled = true
         }
     }
     
@@ -138,6 +217,7 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         dateLabel.text = format.string(from: currentDateTime)
     }
 
+    // First Placeholder
     func FeelingsPlaceHolder () {
         doText.delegate = self
         doTextLabel = UILabel()
@@ -150,6 +230,7 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         doTextLabel.isHidden = !doText.text.isEmpty
     }
 
+    // Second Place holder
     func ThoughtsPlaceHolder (){
         textView.delegate = self
         placeholderLabel = UILabel()
@@ -161,5 +242,16 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        if (textView == doText) {
+            doTextLabel.isHidden = !doText.text.isEmpty
+        } else {
+            placeholderLabel.isHidden = !textView.text.isEmpty
+        }
+            
+    }
+    
 }
 

@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T1u-h1-sd7">
-                                <rect key="frame" x="43" y="551" width="329" height="134"/>
+                                <rect key="frame" x="43" y="568" width="329" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87162315850000005" green="0.91192978619999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -113,8 +113,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mG1-cy-ZT2">
-                                <rect key="frame" x="52" y="740" width="310" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="57" y="735" width="300" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Submit Button"/>
                                 <connections>
                                     <action selector="submitButton:" destination="hm4-ZQ-LbJ" eventType="touchUpInside" id="HyA-2p-3XS"/>
@@ -134,6 +134,11 @@
                         <outlet property="superHappyImage" destination="gGJ-wH-eJ5" id="FI4-nI-RuE"/>
                         <outlet property="superSadImage" destination="S8r-as-0kP" id="tdD-oY-q5B"/>
                         <outlet property="textView" destination="T1u-h1-sd7" id="T4k-sr-vVb"/>
+                        <outletCollection property="emotionButton" destination="S8r-as-0kP" collectionClass="NSMutableArray" id="1Fy-5C-jW9"/>
+                        <outletCollection property="emotionButton" destination="23X-Bj-aa0" collectionClass="NSMutableArray" id="ok5-nj-a3Z"/>
+                        <outletCollection property="emotionButton" destination="pAg-rb-aFm" collectionClass="NSMutableArray" id="FeL-b9-6Gm"/>
+                        <outletCollection property="emotionButton" destination="Jw6-2x-Baw" collectionClass="NSMutableArray" id="uaa-g1-zkS"/>
+                        <outletCollection property="emotionButton" destination="gGJ-wH-eJ5" collectionClass="NSMutableArray" id="04o-gp-gdx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3HC-wf-lZg" sceneMemberID="firstResponder"/>
