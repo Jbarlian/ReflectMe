@@ -36,8 +36,13 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         GetCurrentDate()
         
         // Set Name with User Default
-        let userDictionary = defaults.dictionary(forKey: "user")
-        usernameLabel.text = userDictionary?["name"] as? String
+        
+        if let savedUser = defaults.object(forKey: "savedUser") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
+                usernameLabel.text = loadedUser.username
+            }
+        }
     }
     
     func GetTime () {
