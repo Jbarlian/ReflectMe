@@ -47,7 +47,7 @@ class OnboardingVC: UIViewController {
         df.dateFormat = "MMM d, yyyy"
         let dateJoined = df.string(from: Date())
         
-        let user = User(username: userName, dateJoined: dateJoined, badges: ["profile-badge", "profile-badge-2", "profile-badge-2"])
+        let user = User(username: userName, dateJoined: dateJoined, badges: [])
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(user) {

@@ -37,6 +37,11 @@ class ProfileVC: UIViewController {
             }
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         // Get Posts from User Defaults
         if let savedPosts = defaults.object(forKey: "savedPosts") as? Data {
             let decoder = JSONDecoder()
@@ -49,7 +54,6 @@ class ProfileVC: UIViewController {
         setStatistics()
         
         setCurrentBadge()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,17 +70,29 @@ class ProfileVC: UIViewController {
                 
                 // Set words written
                 if(!posts.isEmpty) {
+                    totalWords = 0
                     for n in 0...posts.count-1 {
                         totalWords += SpecificWordCount(post: posts[n])
                     }
                 }
                 labelWordsWritten.text = "\(totalWords)"
                 
+                // Set average emotion
+                var emotionScore: Float = 0
+                if(!posts.isEmpty) {
+                    totalWords = 0
+                    for n in 0...posts.count-1 {
+                        emotionScore += score(posts[n].postEmotion)
+                    }
+                }
+                emotionScore = emotionScore / Float((posts.count))
+                
+                print(emotionScore)
+                //labelCurrentStreak.text = "\(emotionScore)"
+                labelCurrentStreak.text = String.localizedStringWithFormat("%.1f / 5", emotionScore)
                 
                 // Set total entries
                 labelTotalEntries.text = "\(posts.count)"
-                
-                // Set current streak
                 
                 // Set total badges count
                 print("Total badgges: \(loadedUser.badges.count)")
@@ -101,7 +117,7 @@ class ProfileVC: UIViewController {
             case "profile-badge-3":
                 imageBadge.image = UIImage(named: "profile-badge-3")
             default:
-                print("badge lain")
+                imageBadge.image = UIImage(named: "")
             }
             
         } else {
@@ -128,6 +144,24 @@ class ProfileVC: UIViewController {
         }
         
         return count
+    }
+    
+    //
+    func score(_ emotion:String) -> Float {
+        switch emotion {
+        case "super-sad":
+            return 1
+        case "sad":
+            return 2
+        case "neutral":
+            return 3
+        case "happy":
+            return 4
+        case "super-happy":
+            return 5
+        default:
+            return 0
+        }
     }
 
     /*
