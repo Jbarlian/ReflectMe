@@ -12,15 +12,7 @@ class OnboardingVC: UIViewController {
 
     @IBOutlet weak var textFieldName: UITextField!
     
-    let defaults = UserDefaults.standard
-    
     var userName: String = ""
-    //var user = User(username: "", dateJoined: Date(), badges: [""])
-    
-    var user = [
-        "name": "",
-        "dateJoined": ""
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +29,33 @@ class OnboardingVC: UIViewController {
 
     
     @IBAction func startButtonTapped(_ sender: Any) {
-        userName = textFieldName.text!
+        
+        validateName()
         
         let df = DateFormatter()
         df.dateFormat = "MMM d, yyyy"
         let dateJoined = df.string(from: Date())
         
-        user["name"] = userName
-        user["dateJoined"] = dateJoined
+        let user = User(username: userName, dateJoined: dateJoined, badges: ["profile-badge", "profile-badge-2", "profile-badge-2"])
         
-        defaults.set(user, forKey: "user")
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(user) {
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey: "savedUser")
+        }
     
         performSegue(withIdentifier: "toHomePage", sender: self)
+    }
+    
+    func validateName() {
+        
+        if textFieldName.text == "" {
+            let alert = UIAlertController(title: "Uh Oh!", message: "Name cannot be empty", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            userName = textFieldName.text!
+        }
     }
     
     /*

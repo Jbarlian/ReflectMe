@@ -9,8 +9,8 @@
 import Foundation
 
 
-struct User {
+struct User:Codable {
     var username: String
-    var dateJoined: Date
-    var badges:[String]
+    var dateJoined: String
+    var badges: [String]
 }
