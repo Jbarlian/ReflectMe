@@ -121,6 +121,10 @@
                                     <segue destination="sEV-oq-jQg" kind="unwind" unwindAction="segueFromInput:" id="zxb-iA-9rJ"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQ9-5H-0af">
+                                <rect key="frame" x="105" y="197" width="200" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gGJ-SO-xML"/>
@@ -134,6 +138,11 @@
                         <outlet property="superHappyImage" destination="gGJ-wH-eJ5" id="FI4-nI-RuE"/>
                         <outlet property="superSadImage" destination="S8r-as-0kP" id="tdD-oY-q5B"/>
                         <outlet property="textView" destination="T1u-h1-sd7" id="T4k-sr-vVb"/>
+                        <outletCollection property="emotionButton" destination="S8r-as-0kP" collectionClass="NSMutableArray" id="1Fy-5C-jW9"/>
+                        <outletCollection property="emotionButton" destination="23X-Bj-aa0" collectionClass="NSMutableArray" id="ok5-nj-a3Z"/>
+                        <outletCollection property="emotionButton" destination="pAg-rb-aFm" collectionClass="NSMutableArray" id="FeL-b9-6Gm"/>
+                        <outletCollection property="emotionButton" destination="Jw6-2x-Baw" collectionClass="NSMutableArray" id="uaa-g1-zkS"/>
+                        <outletCollection property="emotionButton" destination="gGJ-wH-eJ5" collectionClass="NSMutableArray" id="04o-gp-gdx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3HC-wf-lZg" sceneMemberID="firstResponder"/>
