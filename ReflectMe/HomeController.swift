@@ -23,7 +23,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         guard let postFromInput = sender.source as? InputPageVC else { return }
         posts.append(postFromInput.aPost ?? defaultPosts)
-        print(posts)
+        // print(posts)
     }
 
     let defaults = UserDefaults.standard

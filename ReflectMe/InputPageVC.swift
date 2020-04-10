@@ -40,23 +40,20 @@ class InputPageVC: UIViewController, UITextViewDelegate {
     // Data for Inputs
     var aPost: Post? = Post(postId: 1, postDate: Date(), postEmotion: "Happy", postDo: "Aku senang", postThought: "Aku belajar")
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+// Do any additional setup after loading the view.
 //        aPost?.postId = 1
 //        aPost?.postEmotion = "happy"
 //        aPost?.postDo = doText.text
 //        aPost?.postThought = textView.text
 
-        
         // Insert placeholders
         FeelingsPlaceHolder()
         ThoughtsPlaceHolder()
-//
-//        //Get rid of placeholder
-//        doTextDidChange(doText)
-//        thoughtTextDidChange(thoughtText)
 
 //        // Print Today's Date
         GetCurrentDate()
@@ -72,7 +69,8 @@ class InputPageVC: UIViewController, UITextViewDelegate {
 //    }
     
     @IBAction func submitButton(_ sender: UIButton) {
-        
+        aPost?.postDo = doText.text
+        aPost?.postThought = textView.text
     }
     
     @IBAction func superSadButton(_ sender: UIButton) {
