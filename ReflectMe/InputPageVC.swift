@@ -48,17 +48,13 @@ class InputPageVC: UIViewController, UITextViewDelegate {
 
         // Insert placeholders
         FeelingsPlaceHolder()
-        ThoughtsPlaceHolder()
+//        ThoughtsPlaceHolder()
 
 //        // Print Today's Date
         GetCurrentDate()
     
     }
 
-    func textViewDidChange(_ doText: UITextView) {
-        doTextLabel.isHidden = !doText.text.isEmpty
-        }
-    
 //    func textViewDidChange(_ textView: UITextView) {
 //        placeholderLabel.isHidden = !textView.text.isEmpty
 //    }
@@ -196,6 +192,7 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         dateLabel.text = format.string(from: currentDateTime)
     }
 
+    // First Placeholder
     func FeelingsPlaceHolder () {
         doText.delegate = self
         doTextLabel = UILabel()
@@ -208,6 +205,7 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         doTextLabel.isHidden = !doText.text.isEmpty
     }
 
+    // Second Place holder
     func ThoughtsPlaceHolder (){
         textView.delegate = self
         placeholderLabel = UILabel()
@@ -219,5 +217,12 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
+    
+    func textViewDidChange(_ doText: UITextView) {
+        
+        doTextLabel.isHidden = !doText.text.isEmpty
+            
+    }
+    
 }
 
