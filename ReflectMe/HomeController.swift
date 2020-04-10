@@ -42,7 +42,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //homeTableView.delegate = self
+        homeTableView.delegate = self
         homeTableView.dataSource = self
         
         GetTime()
@@ -116,6 +116,17 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        cell.imageView?.image = UIImage(named: categories[indexPath.row].categoryImage)
         return cell
     }
+    
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let post = posts[indexPath.row]
+            performSegue(withIdentifier: "detailpageVC", sender: post)
+        }
+        
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let detailPageControl = segue.destination as? detailpageVC{
+                detailPageControl.aPost = sender as! Post
+            }
+        }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 150
