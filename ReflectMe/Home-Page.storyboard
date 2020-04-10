@@ -160,7 +160,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OaZ-BD-yjc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="1uD-h6-MeE"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="1uD-h6-MeE"/>
                     <navigationItem key="navigationItem" id="1wm-bp-py8"/>
                     <connections>
                         <outlet property="dateLabel" destination="Eni-dO-WpM" id="bHB-TX-10F"/>
@@ -217,6 +217,7 @@
     <resources>
         <image name="Rectangle" width="275" height="42"/>
         <image name="floral" width="188" height="286"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="slider" width="30" height="22"/>
     </resources>
 </document>

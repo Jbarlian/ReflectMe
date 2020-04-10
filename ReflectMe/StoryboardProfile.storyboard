@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EPB-aC-O25">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EPB-aC-O25">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--ProfileVC-->
+        <!--Profile-->
         <scene sceneID="LTE-H3-zxj">
             <objects>
                 <viewController id="EPB-aC-O25" customClass="ProfileVC" customModule="ReflectMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,7 +140,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="CMI-4X-iWE"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="3x1-93-l0w"/>
                     <navigationItem key="navigationItem" id="1NF-up-G88"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateJoinedLabel" destination="VwY-vk-NoG" id="fYh-Hu-VX4"/>
                         <outlet property="imageBadge" destination="fTS-hF-rmK" id="jg8-qd-IdO"/>
@@ -158,6 +160,7 @@
     </scenes>
     <resources>
         <image name="Profile-background" width="414" height="459"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="profile-avatar-image" width="160" height="160"/>
         <image name="profile-badge" width="50" height="50"/>
     </resources>
