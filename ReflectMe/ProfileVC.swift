@@ -21,6 +21,8 @@ class ProfileVC: UIViewController {
     let defaults = UserDefaults.standard
     
     var arrayOfBadges: [String] = []
+    var posts:[Post] = []
+    var totalWords = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,14 @@ class ProfileVC: UIViewController {
             if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
                 nameLabel.text = loadedUser.username
                 dateJoinedLabel.text = loadedUser.dateJoined
+            }
+        }
+        
+        // Get Posts from User Defaults
+        if let savedPosts = defaults.object(forKey: "savedPosts") as? Data {
+            let decoder = JSONDecoder()
+            if let loadedPosts = try? decoder.decode([Post].self, from: savedPosts) {
+                posts = loadedPosts
             }
         }
         
@@ -55,8 +65,16 @@ class ProfileVC: UIViewController {
             if let loadedUser = try? decoder.decode(User.self, from: savedUser) {
                 
                 // Set words written
+                if(!posts.isEmpty) {
+                    for n in 0...posts.count-1 {
+                        totalWords += SpecificWordCount(post: posts[n])
+                    }
+                }
+                labelWordsWritten.text = "\(totalWords)"
+                
                 
                 // Set total entries
+                labelTotalEntries.text = "\(posts.count)"
                 
                 // Set current streak
                 
@@ -91,6 +109,26 @@ class ProfileVC: UIViewController {
         }
     }
     
+    // counts a specific word in a string
+    func SpecificWordCount(post: Post) ->Int {
+        
+        // Count words in Post Do
+        var str = post.postDo
+        var words = str.components(separatedBy: " ")
+        var count = 0
+        for _ in words {
+            count += 1
+        }
+        
+        // Count words in Post Thought
+        str = post.postThought
+        words = str.components(separatedBy: " ")
+        for _ in words {
+            count += 1
+        }
+        
+        return count
+    }
 
     /*
     // MARK: - Navigation
