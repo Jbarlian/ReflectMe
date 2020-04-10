@@ -167,11 +167,12 @@
                         <outlet property="greetingsLabel" destination="lKM-UI-ZO8" id="yPM-ID-7yW"/>
                         <outlet property="homeTableView" destination="TtS-UG-Uiq" id="4h1-00-ZIy"/>
                         <outlet property="usernameLabel" destination="yj3-lB-rqm" id="a4y-4L-bje"/>
+                        <segue destination="G0q-3W-f4t" kind="showDetail" identifier="detailpageVC" id="1R1-zV-stL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLI-Tm-yrU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3778.2608695652175" y="137.94642857142856"/>
+            <point key="canvasLocation" x="3774" y="100"/>
         </scene>
         <!--CardInput-->
         <scene sceneID="PDC-6M-ELW">
