@@ -14,4 +14,5 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet var labelStory: UILabel!
     @IBOutlet var imageMood: UIImageView!
     
+    
 }
