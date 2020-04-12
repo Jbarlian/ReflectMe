@@ -116,7 +116,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     func setCardShadows(myView: UIView) {
         myView.layer.applySketchShadow(
         color: .black,
-        alpha: 0.1,
+        alpha: 0.08,
         x: 0,
         y: 4,
         blur: 12,

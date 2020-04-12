@@ -8,9 +8,10 @@
 
 import UIKit
 
-class OnboardingVC: UIViewController {
+class OnboardingVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var scrollviewOnboard: UIScrollView!
     
     var userName: String = ""
     
@@ -36,6 +37,18 @@ class OnboardingVC: UIViewController {
 
         self.navigationController?.isNavigationBarHidden = true
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollviewOnboard.setContentOffset(CGPoint(x: 0, y: 150), animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollviewOnboard.setContentOffset(CGPoint(x:0, y:0), animated: true)
+    }
 
     
     @IBAction func startButtonTapped(_ sender: Any) {
@@ -53,8 +66,7 @@ class OnboardingVC: UIViewController {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "savedUser")
         }
-    
-        performSegue(withIdentifier: "toHomePage", sender: self)
+
     }
     
     func validateName() {
@@ -65,17 +77,11 @@ class OnboardingVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         } else {
             userName = textFieldName.text!
+            defaults.set("No", forKey:"isFirstTime")
+            
+            performSegue(withIdentifier: "toHomePage", sender: self)
         }
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

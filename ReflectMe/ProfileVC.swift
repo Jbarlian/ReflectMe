@@ -41,7 +41,7 @@ class ProfileVC: UIViewController {
         
         viewProfileCard.layer.applySketchShadow(
             color: .black,
-            alpha: 0.1,
+            alpha: 0.08,
             x: 0,
             y: 4,
             blur: 12,
@@ -95,11 +95,13 @@ class ProfileVC: UIViewController {
                         emotionScore += score(posts[n].postEmotion)
                     }
                 }
-                emotionScore = emotionScore / Float((posts.count))
                 
-                print(emotionScore)
-                //labelCurrentStreak.text = "\(emotionScore)"
-                labelCurrentStreak.text = String.localizedStringWithFormat("%.1f / 5", emotionScore)
+                if posts.isEmpty {
+                    labelCurrentStreak.text = "0 / 5"
+                } else {
+                    emotionScore = emotionScore / Float((posts.count))
+                    labelCurrentStreak.text = String.localizedStringWithFormat("%.1f / 5", emotionScore)
+                }
                 
                 // Set total entries
                 labelTotalEntries.text = "\(posts.count)"
