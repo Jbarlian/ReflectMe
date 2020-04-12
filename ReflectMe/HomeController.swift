@@ -28,7 +28,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var currentDate = ""
-    var posts:[Post] = [Post(postId: 1, postDate: Date(timeIntervalSinceReferenceDate: -123456789.0), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")]
+    var posts:[Post] = []
     var user:User?
     var defaultPost = Post(postId: 1, postDate: Date(timeIntervalSinceReferenceDate: -123456789.0), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
     var todayPost = Post(postId: -999, postDate: Date(), postEmotion: "", postDo: "", postThought: "")
@@ -249,8 +249,10 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //check apakah user sudah melakukan post hari ini
     func anyPostToday() -> Bool {
-        if formatDate(Date()) == formatDate(posts[0].postDate) {
-            return true
+        if ( posts.count > 0 ) {
+            if formatDate(Date()) == formatDate(posts[0].postDate) {
+                return true
+            }
         }
         return false
     }
