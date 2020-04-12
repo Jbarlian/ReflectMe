@@ -32,29 +32,40 @@ class detailpageVC: UIViewController {
         
         if isEdit{
             reflectionStory.isEditable = true
+            reflectionStory.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
             reflectionThought.isEditable = true
+            reflectionThought.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.00)
             doneButton.isHidden = false
             backButton.isHidden = true
         } else {
+            reflectionStory.backgroundColor = UIColor.white
             reflectionStory.isEditable = false
+            reflectionThought.backgroundColor = UIColor.white
             reflectionThought.isEditable = false
             doneButton.isHidden = true
             backButton.isHidden = false
         }
         
+        //MARK: HIDE KEYBOARD WHEN TAPPING ON SCREEN
+        let tapOnScreen: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        tapOnScreen.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tapOnScreen)
+        
         
         //put background image
         switch aPost.postEmotion {
-        case "angry":
-            reflectionEmotionBg.image = UIImage (named: "bg-smile")
+        case "super-sad":
+            reflectionEmotionBg.image = UIImage (named: "bg-emotion-1")
         case "sad":
-            reflectionEmotionBg.image = UIImage (named: "bg-smile")
-        case "flat":
-            reflectionEmotionBg.image = UIImage (named: "bg-smile")
-        case "smile":
-            reflectionEmotionBg.image = UIImage (named: "bg-smile")
+            reflectionEmotionBg.image = UIImage (named: "bg-emotion-2")
+        case "neutral":
+            reflectionEmotionBg.image = UIImage (named: "bg-emotion-3")
         case "happy":
-            reflectionEmotionBg.image = UIImage (named: "bg-smile")
+            reflectionEmotionBg.image = UIImage (named: "bg-emotion-4")
+        case "super-happy":
+            reflectionEmotionBg.image = UIImage (named: "bg-emotion-5")
         default:
             print("error")
         }
@@ -66,6 +77,10 @@ class detailpageVC: UIViewController {
         //put the story
         reflectionStory.text = "\(aPost.postDo)"
         reflectionThought.text = "\(aPost.postThought)"
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     //get specific format of date to be displayed

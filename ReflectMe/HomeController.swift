@@ -20,6 +20,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var viewCardMain: UIView!
     
     @IBAction func editTodayPost(_ sender: Any) {
         performSegue(withIdentifier: "detailpageVC", sender: posts[0])
@@ -86,6 +87,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         GetTime()
         GetCurrentDate()
+        
         // Get Posts from User Defaults
         if let savedPosts = defaults.object(forKey: "savedPosts") as? Data {
             let decoder = JSONDecoder()
@@ -102,10 +104,24 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
                 user = loadedUser
             }
         }
+        
+        // Set shadows
+        setCardShadows(myView: viewCardMain)
+        //setCardShadows(myView: viewCardEntries)
+        
         refreshDisplay()
         print(posts)
     }
     
+    func setCardShadows(myView: UIView) {
+        myView.layer.applySketchShadow(
+        color: .black,
+        alpha: 0.1,
+        x: 0,
+        y: 4,
+        blur: 12,
+        spread: 2)
+    }
     
     func GetTime () {
         let hour = Calendar.current.component(.hour, from: Date())

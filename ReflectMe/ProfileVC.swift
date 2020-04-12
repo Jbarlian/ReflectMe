@@ -18,6 +18,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var labelTotalBadges: UILabel!
     @IBOutlet weak var labelCurrentStreak: UILabel!
     
+    @IBOutlet weak var viewProfileCard: UIView!
+    
     let defaults = UserDefaults.standard
     
     var arrayOfBadges: [String] = []
@@ -36,6 +38,14 @@ class ProfileVC: UIViewController {
                 dateJoinedLabel.text = loadedUser.dateJoined
             }
         }
+        
+        viewProfileCard.layer.applySketchShadow(
+            color: .black,
+            alpha: 0.1,
+            x: 0,
+            y: 4,
+            blur: 12,
+            spread: 2)
         
     }
     

@@ -53,6 +53,17 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         // Print Today's Date
         GetCurrentDate()
     
+        //MARK: HIDE KEYBOARD WHEN TAPPING ON SCREEN
+        let tapOnScreen: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        tapOnScreen.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tapOnScreen)
+    
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
 //    func textViewDidChange(_ textView: UITextView) {

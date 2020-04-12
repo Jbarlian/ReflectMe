@@ -151,6 +151,7 @@
                         <outlet property="labelTotalEntries" destination="C7c-8i-3Ca" id="Ffu-Xb-DPg"/>
                         <outlet property="labelWordsWritten" destination="7J1-Vi-RbD" id="SKR-NK-PL8"/>
                         <outlet property="nameLabel" destination="CcP-5t-Z4X" id="9Af-wi-K6m"/>
+                        <outlet property="viewProfileCard" destination="DMA-VJ-LIa" id="kHS-c2-aoY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyx-5v-JYR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
