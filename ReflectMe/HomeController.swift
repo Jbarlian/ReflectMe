@@ -20,6 +20,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var viewCardMain: UIView!
     
     @IBAction func editTodayPost(_ sender: Any) {
         performSegue(withIdentifier: "detailpageVC", sender: posts[0])
@@ -67,6 +68,13 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         let newThought = editDataFromDetail.reflectionThought.text
         posts[0].postDo = newDo ?? posts[0].postDo
         posts[0].postThought = newThought ?? posts[0].postThought
+        
+        // Save posts to UserDefault
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(posts) {
+            defaults.set(encoded, forKey: "savedPosts")
+        }
+        
         refreshDisplay()
     }
 
@@ -79,6 +87,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         GetTime()
         GetCurrentDate()
+        
         // Get Posts from User Defaults
         if let savedPosts = defaults.object(forKey: "savedPosts") as? Data {
             let decoder = JSONDecoder()
@@ -95,10 +104,24 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
                 user = loadedUser
             }
         }
+        
+        // Set shadows
+        setCardShadows(myView: viewCardMain)
+        //setCardShadows(myView: viewCardEntries)
+        
         refreshDisplay()
         print(posts)
     }
     
+    func setCardShadows(myView: UIView) {
+        myView.layer.applySketchShadow(
+        color: .black,
+        alpha: 0.08,
+        x: 0,
+        y: 4,
+        blur: 12,
+        spread: 2)
+    }
     
     func GetTime () {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -148,9 +171,25 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         //dateString now contains the string:
         //"December 25, 2019 at 7:00:00 AM"
         
+        let moodImage = posts[indexPath.row].postEmotion
+        switch moodImage {
+        case "super-sad":
+            cell.imageMood.image = UIImage(named: "home-emotion-1")
+        case "sad":
+            cell.imageMood.image = UIImage(named: "home-emotion-2")
+        case "neutral":
+            cell.imageMood.image = UIImage(named: "home-emotion-3")
+        case "happy":
+            cell.imageMood.image = UIImage(named: "home-emotion-4")
+        case "super-happy":
+            cell.imageMood.image = UIImage(named: "home-emotion-5")
+        default:
+            print("Ga ada mood")
+        }
+        
         cell.labelDate.text = dateString
         cell.labelStory.text = posts[indexPath.row].postDo
-        cell.imageMood.image = UIImage(named: "sad-2")
+        //cell.imageMood.image = UIImage(named: "sad-2")
         return cell
     }
     

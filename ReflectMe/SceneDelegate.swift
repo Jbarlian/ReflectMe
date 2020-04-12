@@ -22,8 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let defaults = UserDefaults.standard
 
         if defaults.object(forKey: "isFirstTime") == nil {
-            print("First time")
-            defaults.set("No", forKey:"isFirstTime")
+            //print("First time")
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil) //Write your storyboard name
             let viewController = storyboard.instantiateViewController(withIdentifier: "navVC") as! UINavigationController
             self.window?.rootViewController = viewController

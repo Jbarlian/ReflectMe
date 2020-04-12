@@ -18,6 +18,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var labelTotalBadges: UILabel!
     @IBOutlet weak var labelCurrentStreak: UILabel!
     
+    @IBOutlet weak var viewProfileCard: UIView!
+    
     let defaults = UserDefaults.standard
     
     var arrayOfBadges: [String] = []
@@ -36,6 +38,14 @@ class ProfileVC: UIViewController {
                 dateJoinedLabel.text = loadedUser.dateJoined
             }
         }
+        
+        viewProfileCard.layer.applySketchShadow(
+            color: .black,
+            alpha: 0.08,
+            x: 0,
+            y: 4,
+            blur: 12,
+            spread: 2)
         
     }
     
@@ -85,11 +95,13 @@ class ProfileVC: UIViewController {
                         emotionScore += score(posts[n].postEmotion)
                     }
                 }
-                emotionScore = emotionScore / Float((posts.count))
                 
-                print(emotionScore)
-                //labelCurrentStreak.text = "\(emotionScore)"
-                labelCurrentStreak.text = String.localizedStringWithFormat("%.1f / 5", emotionScore)
+                if posts.isEmpty {
+                    labelCurrentStreak.text = "0 / 5"
+                } else {
+                    emotionScore = emotionScore / Float((posts.count))
+                    labelCurrentStreak.text = String.localizedStringWithFormat("%.1f / 5", emotionScore)
+                }
                 
                 // Set total entries
                 labelTotalEntries.text = "\(posts.count)"
@@ -121,7 +133,7 @@ class ProfileVC: UIViewController {
             }
             
         } else {
-            print("no badges")
+            imageBadge.image = nil
         }
     }
     

@@ -28,6 +28,7 @@
 		3E697947243C269F00167AF5 /* StoryboardProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */; };
 		3E728AC4243C32ED006DD452 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728AC3243C32ED006DD452 /* ProfileVC.swift */; };
 		3E728AC6243C3310006DD452 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E728AC5243C3310006DD452 /* OnboardingVC.swift */; };
+		3E9876882443747F007B7C55 /* BoxShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9876872443747F007B7C55 /* BoxShadowExtension.swift */; };
 		3EF6E03C243EC74E00EDD279 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF6E03B243EC74E00EDD279 /* Onboarding.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoryboardProfile.storyboard; sourceTree = "<group>"; };
 		3E728AC3243C32ED006DD452 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		3E728AC5243C3310006DD452 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		3E9876872443747F007B7C55 /* BoxShadowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxShadowExtension.swift; sourceTree = "<group>"; };
 		3EF6E03B243EC74E00EDD279 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				1ECFA8CB24404CD7009E9F54 /* postTableViewCell.swift */,
 				1CE4A455243C41FC00D69FAF /* CardInput.storyboard */,
 				1E2C4F4C243DD12E005D564D /* HelperExtension.swift */,
+				3E9876872443747F007B7C55 /* BoxShadowExtension.swift */,
 				3E3E628D243D7C2A00CE4426 /* detailPage.storyboard */,
 				3E697946243C269F00167AF5 /* StoryboardProfile.storyboard */,
 				1ECFA8C7243EC14F009E9F54 /* Post.swift */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ECFA8CA243EC517009E9F54 /* User.swift in Sources */,
+				3E9876882443747F007B7C55 /* BoxShadowExtension.swift in Sources */,
 				1C9C5DDD2436F1270097BAE9 /* HomeController.swift in Sources */,
 				1C9C5DDD2436F1270097BAE9 /* HomeController.swift in Sources */,
 				1ECFA8CC24404CD7009E9F54 /* postTableViewCell.swift in Sources */,
@@ -350,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZVFHU6RX9A;
+				DEVELOPMENT_TEAM = MKAZY29R8W;
 				INFOPLIST_FILE = ReflectMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -369,7 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZVFHU6RX9A;
+				DEVELOPMENT_TEAM = MKAZY29R8W;
 				INFOPLIST_FILE = ReflectMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -8,9 +8,10 @@
 
 import UIKit
 
-class OnboardingVC: UIViewController {
+class OnboardingVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var scrollviewOnboard: UIScrollView!
     
     var userName: String = ""
     
@@ -18,24 +19,35 @@ class OnboardingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK: HIDE KEYBOARD WHEN TAPPING ON SCREEN
+        let tapOnScreen: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 
-//        if defaults.bool(forKey: "First Launch") == true {
-//            print("Second+")
-//
-//            // Run code after first launch
-//
-//            defaults.set(true, forKey: "First Launch")
-//        } else {
-//            print("First")
-//            // Run code after first launch
-//            defaults.set(true, forKey: "First Launch")
-//        }
+        tapOnScreen.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tapOnScreen)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollviewOnboard.setContentOffset(CGPoint(x: 0, y: 150), animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollviewOnboard.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
 
     
@@ -54,8 +66,7 @@ class OnboardingVC: UIViewController {
             let defaults = UserDefaults.standard
             defaults.set(encoded, forKey: "savedUser")
         }
-    
-        performSegue(withIdentifier: "toHomePage", sender: self)
+
     }
     
     func validateName() {
@@ -66,17 +77,11 @@ class OnboardingVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         } else {
             userName = textFieldName.text!
+            defaults.set("No", forKey:"isFirstTime")
+            
+            performSegue(withIdentifier: "toHomePage", sender: self)
         }
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

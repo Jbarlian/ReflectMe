@@ -19,10 +19,10 @@ class InputPageVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var sadImage: UIButton!
     @IBOutlet weak var superSadImage: UIButton!
     
-    @IBOutlet var emotionButton: [UIButton]!
-    
     @IBOutlet weak var doText: UITextView!
     @IBOutlet weak var textView: UITextView!
+    
+    @IBOutlet weak var scrollview: UIScrollView!
     
     @IBAction func dismissButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -53,11 +53,36 @@ class InputPageVC: UIViewController, UITextViewDelegate {
         // Print Today's Date
         GetCurrentDate()
     
+        //MARK: HIDE KEYBOARD WHEN TAPPING ON SCREEN
+        let tapOnScreen: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        tapOnScreen.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tapOnScreen)
+    
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
-//    func textViewDidChange(_ textView: UITextView) {
-//        placeholderLabel.isHidden = !textView.text.isEmpty
-//    }
+    // Keyboard Setting
+    func textViewDidBeginEditing(_ textview: UITextView) {
+        if (textview == textView) {
+            scrollview.setContentOffset(CGPoint(x: 0, y: 240), animated: true)
+        } else {
+            scrollview.setContentOffset(CGPoint(x: 0, y: 30), animated: true)
+        }
+        
+    }
+    
+    func textViewShouldReturn(_ textview: UITextView) -> Bool {
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textview: UITextView) {
+        scrollview.setContentOffset(CGPoint(x:0, y:0), animated: true)
+    }
     
     @IBAction func submitButton(_ sender: UIButton) {
         aPost?.postDo = doText.text
