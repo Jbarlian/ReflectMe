@@ -121,7 +121,7 @@ class ProfileVC: UIViewController {
             }
             
         } else {
-            print("no badges")
+            imageBadge.image = nil
         }
     }
     

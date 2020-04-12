@@ -18,18 +18,17 @@ class OnboardingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //MARK: HIDE KEYBOARD WHEN TAPPING ON SCREEN
+        let tapOnScreen: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 
-//        if defaults.bool(forKey: "First Launch") == true {
-//            print("Second+")
-//
-//            // Run code after first launch
-//
-//            defaults.set(true, forKey: "First Launch")
-//        } else {
-//            print("First")
-//            // Run code after first launch
-//            defaults.set(true, forKey: "First Launch")
-//        }
+        tapOnScreen.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tapOnScreen)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
