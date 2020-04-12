@@ -8,7 +8,7 @@
 
 import UIKit
 
-class detailpageVC: UIViewController {
+class detailpageVC: UIViewController, UITextViewDelegate {
 
     //set the outlet of each element
     @IBOutlet weak var reflectionEmotionBg: UIImageView!
@@ -20,12 +20,14 @@ class detailpageVC: UIViewController {
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var scrollview: UIScrollView!
+    
     //dummy data, delete this when segue is prepared in home page
     var aPost = Post (postId: 1, postDate: Date(), postEmotion: "happy", postDo: "blabla", postThought: "blulb")
     let date:Date = Date()
     
     var isEdit: Bool = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,8 +81,26 @@ class detailpageVC: UIViewController {
         reflectionThought.text = "\(aPost.postThought)"
     }
     
+    // Keyboard Setting
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func textViewDidBeginEditing(_ textview: UITextView) {
+        if (textview == reflectionThought) {
+            scrollview.setContentOffset(CGPoint(x: 0, y: 250), animated: true)
+        } else {
+            scrollview.setContentOffset(CGPoint(x: 0, y: 30), animated: true)
+        }
+        
+    }
+    
+    func textViewShouldReturn(_ textview: UITextView) -> Bool {
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textview: UITextView) {
+        scrollview.setContentOffset(CGPoint(x:0, y:0), animated: true)
     }
     
     //get specific format of date to be displayed
