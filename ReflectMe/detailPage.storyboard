@@ -64,18 +64,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a90-A0-ieK">
-                                        <rect key="frame" x="306" y="39" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Edit"/>
-                                        <connections>
-                                            <action selector="editButtonAction:" destination="mOe-Ah-7NY" eventType="touchUpInside" id="aDG-qy-Biz"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkk-F2-0zN">
                                         <rect key="frame" x="153" y="492" width="37" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <segue destination="B6S-ln-3Uw" kind="unwind" unwindAction="segueFromDetail:" id="IHW-g9-cMR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -103,7 +98,8 @@
                         <viewLayoutGuide key="safeArea" id="z7p-1u-0hq"/>
                     </view>
                     <connections>
-                        <outlet property="editButtonOutlet" destination="a90-A0-ieK" id="R6B-AO-Jpg"/>
+                        <outlet property="backButton" destination="bHM-2i-KaU" id="vXr-sF-apP"/>
+                        <outlet property="doneButton" destination="lkk-F2-0zN" id="dmF-hd-jwz"/>
                         <outlet property="reflectionDate" destination="sd1-dk-Eyv" id="NAh-ah-Vm7"/>
                         <outlet property="reflectionDay" destination="tCk-7O-MQA" id="uSX-t8-3Ef"/>
                         <outlet property="reflectionEmotionBg" destination="HkC-eH-UEw" id="fH1-F8-ktz"/>

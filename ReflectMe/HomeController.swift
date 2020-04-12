@@ -58,6 +58,15 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        If u want Today post is editable, use this instead
         refreshDisplay()
     }
+    
+    //edit unwind segue
+    @IBAction func segueFromDetail (_ sender: UIStoryboardSegue){
+        guard let editDataFromDetail = sender.source as? detailpageVC else {return}
+        print(posts)
+        let baru = editDataFromDetail.reflectionStory.text
+        posts[0].postDo = baru ?? posts[0].postDo
+        refreshDisplay()
+    }
 
     
     override func viewDidLoad() {
@@ -151,9 +160,14 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailPageControl = segue.destination as? detailpageVC{
-                detailPageControl.aPost = sender as! Post
+            detailPageControl.aPost = sender as! Post
+            if formatDate(detailPageControl.aPost.postDate) == formatDate(Date()){
+                detailPageControl.isEdit = true
+            } else {
+                detailPageControl.isEdit = false
             }
         }
+    }
     
     
     //profile stuff

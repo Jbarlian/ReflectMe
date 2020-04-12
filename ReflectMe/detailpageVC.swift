@@ -17,22 +17,28 @@ class detailpageVC: UIViewController {
     @IBOutlet weak var reflectionDay: UILabel!
     @IBOutlet weak var reflectionStory: UITextView!
     
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     //dummy data, delete this when segue is prepared in home page
     var aPost = Post (postId: 1, postDate: Date(), postEmotion: "happy", postDo: "blabla", postThought: "blulb")
     let date:Date = Date()
     
-    
-    @IBOutlet weak var editButtonOutlet: UIButton!
-    
-    @IBAction func editButtonAction(_ sender: Any) {
-        reflectionStory.isEditable = true
-    }
-    
-    
+    var isEdit: Bool = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isEdit{
+            reflectionStory.isEditable = true
+            doneButton.isHidden = false
+            backButton.isHidden = true
+        } else {
+            reflectionStory.isEditable = false
+            doneButton.isHidden = true
+            backButton.isHidden = false
+        }
+        
         
         //put background image
         switch aPost.postEmotion {
