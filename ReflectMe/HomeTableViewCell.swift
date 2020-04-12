@@ -12,6 +12,6 @@ class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet var labelDate: UILabel!
     @IBOutlet var labelStory: UILabel!
-    //@IBOutlet var imageMood: UIImageView!
+    @IBOutlet var imageMood: UIImageView!
     
 }
