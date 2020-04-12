@@ -138,21 +138,24 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "aHomeCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aHomeCell", for: indexPath) as! HomeTableViewCell
        
         /***** DateFormatter Part *****/
         let formatter = DateFormatter()
         formatter.dateStyle = .long
-        formatter.timeStyle = .medium
-         
+        
         let dateString = formatter.string(from: posts[indexPath.row].postDate)
         //dateString now contains the string:
         //"December 25, 2019 at 7:00:00 AM"
         
-        cell.textLabel?.text = dateString
-        cell.detailTextLabel?.text = posts[indexPath.row].postDo
-        cell.imageView?.image = UIImage(named: "sad-2")
+        cell.labelDate.text = dateString
+        cell.labelStory.text = posts[indexPath.row].postDo
+        cell.imageMood.image = UIImage(named: "sad-2")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
    
