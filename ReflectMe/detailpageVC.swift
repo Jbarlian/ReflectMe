@@ -21,18 +21,15 @@ class detailpageVC: UIViewController {
     var aPost = Post (postId: 1, postDate: Date(), postEmotion: "happy", postDo: "blabla", postThought: "blulb")
     let date:Date = Date()
     
-//  put this to the tableview class (kayanya harus bikin lagi)
-//  ==================================================
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let post = posts[indexPath.row]
-//        performSegue(withIdentifier: "detailpageVC", sender: post)
-//    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let detailPageControl = segue.destination as? detailpageVC{
-//            detailPageControl.aPost = sender
-//        }
-//    }
+    @IBOutlet weak var editButtonOutlet: UIButton!
+    
+    @IBAction func editButtonAction(_ sender: Any) {
+        reflectionStory.isEditable = true
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +61,6 @@ class detailpageVC: UIViewController {
     //get specific format of date to be displayed
     func currentNow(_ date:Date, _ outputFormat:String) -> String {
         let dateFormatter = DateFormatter()
-        print(outputFormat)
         switch outputFormat {
             case "dayname":
                 dateFormatter.dateFormat = "EEEE"
@@ -80,6 +76,11 @@ class detailpageVC: UIViewController {
         let desiredDateFormat = dateFormatter.string(from: date)
         return desiredDateFormat
     }
+    
+   
+    
+    
+    
     
 }
   
