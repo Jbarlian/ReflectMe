@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kxa-EM-nKT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kxa-EM-nKT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="3067" y="526"/>
         </scene>
-        <!--Home-->
+        <!--Entries-->
         <scene sceneID="03E-cd-wEd">
             <objects>
                 <viewController id="ph4-8x-MMS" customClass="HomeController" customModule="ReflectMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -199,7 +199,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OaZ-BD-yjc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="1uD-h6-MeE"/>
+                    <tabBarItem key="tabBarItem" title="Entries" image="doc.text.fill" catalog="system" id="1uD-h6-MeE"/>
                     <navigationItem key="navigationItem" id="1wm-bp-py8"/>
                     <connections>
                         <outlet property="createButton" destination="0TB-gz-Gqf" id="P4c-SB-hDV"/>
@@ -260,7 +260,7 @@
     </scenes>
     <resources>
         <image name="Rectangle" width="275" height="42"/>
+        <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="floral" width="188" height="286"/>
-        <image name="house.fill" catalog="system" width="64" height="52"/>
     </resources>
 </document>

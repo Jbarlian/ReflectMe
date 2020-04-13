@@ -73,8 +73,9 @@ class detailpageVC: UIViewController, UITextViewDelegate {
         }
         
         //put date
-        reflectionDate.text = "\(currentNow(date, "day"))"
-        reflectionMonthYear.text = "\(currentNow(date, "month")), \(currentNow(date, "year"))"
+        reflectionDate.text = "\(currentNow(aPost.postDate, "day"))"
+        reflectionMonthYear.text = "\(currentNow(aPost.postDate, "month")), \(currentNow(aPost.postDate, "year"))"
+        reflectionDay.text = "\(currentNow(aPost.postDate, "dayname"))"
         
         //put the story
         reflectionStory.text = "\(aPost.postDo)"
