@@ -27,9 +27,9 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var currentDate = ""
-    var posts:[Post] = []
+    var posts:[Post] = [Post(postId: 1, postDate: Date(timeIntervalSinceReferenceDate: -123456789.0), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")]
     var user:User?
-    var defaultPost = Post(postId: 1, postDate: Date(), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
+    var defaultPost = Post(postId: 1, postDate: Date(timeIntervalSinceReferenceDate: -123456789.0), postEmotion: "happy", postDo: "Senang", postThought: "Bahagia")
     var todayPost = Post(postId: -999, postDate: Date(), postEmotion: "", postDo: "", postThought: "")
     
     private let reuseIdentifier = "productCell"
@@ -62,9 +62,11 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     //edit unwind segue
     @IBAction func segueFromDetail (_ sender: UIStoryboardSegue){
         guard let editDataFromDetail = sender.source as? detailpageVC else {return}
-        print(posts)
-        let baru = editDataFromDetail.reflectionStory.text
-        posts[0].postDo = baru ?? posts[0].postDo
+        //print(posts)
+        let newDo = editDataFromDetail.reflectionStory.text
+        let newThought = editDataFromDetail.reflectionThought.text
+        posts[0].postDo = newDo ?? posts[0].postDo
+        posts[0].postThought = newThought ?? posts[0].postThought
         refreshDisplay()
     }
 
@@ -94,6 +96,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         refreshDisplay()
+        print(posts)
     }
     
     
@@ -198,7 +201,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     func formatDate (_ date:Date) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM y"
-        let desiredDateFormat = dateFormatter.string(from: Date())
+        let desiredDateFormat = dateFormatter.string(from: date)
         return desiredDateFormat
     }
     
@@ -211,22 +214,20 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    //INI KALO MAU CARD TODAY EDITABLE
     func refreshDisplay(){
-        
         if anyPostToday() == true {
-//            editButton.isEnabled = true
-//            editButton.isHidden = false
-//            createButton.isEnabled = false
-//            createButton.isHidden = true
+            editButton.isEnabled = true
+            editButton.isHidden = false
+            createButton.isEnabled = false
+            createButton.isHidden = true
             createButtonText.text = "Edit Today's Post"
             storySubs.text = posts[0].postDo
         }
         else if anyPostToday() == false {
-//            editButton.isEnabled = false
-//            editButton.isHidden = true
-//            createButton.isEnabled = false
-//            createButton.isHidden = true
+            editButton.isEnabled = false
+            editButton.isHidden = true
+            createButton.isEnabled = true
+            createButton.isHidden = false
             createButtonText.text = "+ Create New Story"
             storySubs.text = "Add today's Story"
         }
@@ -235,15 +236,11 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //check if now is tomorrow
     @objc func aNewDay(){
-        print ("checking time")
+        //print ("checking time")
         let x = currentHour()
         let y = currentMinute()
         if (x == 00 && y == 00){
             refreshDisplay()
-            //todayPost.postId = posts.count
-            //posts.append(todayPost)
-            //todayPost = defaultPost
-            //refreshDisplay()
         }
     }
     

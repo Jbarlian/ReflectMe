@@ -16,6 +16,7 @@ class detailpageVC: UIViewController {
     @IBOutlet weak var reflectionMonthYear: UILabel!
     @IBOutlet weak var reflectionDay: UILabel!
     @IBOutlet weak var reflectionStory: UITextView!
+    @IBOutlet weak var reflectionThought: UITextView!
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -31,10 +32,12 @@ class detailpageVC: UIViewController {
         
         if isEdit{
             reflectionStory.isEditable = true
+            reflectionThought.isEditable = true
             doneButton.isHidden = false
             backButton.isHidden = true
         } else {
             reflectionStory.isEditable = false
+            reflectionThought.isEditable = false
             doneButton.isHidden = true
             backButton.isHidden = false
         }
@@ -61,7 +64,8 @@ class detailpageVC: UIViewController {
         reflectionMonthYear.text = "\(currentNow(date, "month")), \(currentNow(date, "year"))"
         
         //put the story
-        reflectionStory.text = "\(aPost.postDo )\n\n\(aPost.postThought)"
+        reflectionStory.text = "\(aPost.postDo)"
+        reflectionThought.text = "\(aPost.postThought)"
     }
     
     //get specific format of date to be displayed
@@ -82,17 +86,5 @@ class detailpageVC: UIViewController {
         let desiredDateFormat = dateFormatter.string(from: date)
         return desiredDateFormat
     }
-    
-   
-    
-    
-    
-    
 }
   
-//    //ga kepake sih, ikr...
-//    receiving data from homepage (post Id aja)
-//    func initPost(postId: Int) {
-//
-//      self.navigationItem.title = post.postId
-//    }
